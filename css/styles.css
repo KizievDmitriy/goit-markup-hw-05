@@ -116,6 +116,7 @@ img {
 }
 .links-nav .link {
   display: block;
+
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
@@ -125,6 +126,8 @@ img {
   padding-top: 32px;
   padding-bottom: 32px;
   padding-left: 0;
+
+  transition: color 250ms var(--animation-cubic);
 }
 
 .links-nav .link:hover,
@@ -137,17 +140,21 @@ img {
 .link::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   width: 100%;
   height: 4px;
   background-color: var(--accent-color);
   border-radius: 2px;
   opacity: 0;
+
+  transform: scaleX(0);
+  transition: opacity 250ms var(--animation-cubic), transform 250ms var(--animation-cubic);
 }
 
 .link:hover:after {
   opacity: 1;
+  transform: scaleX(1);
 }
 
 .item-mail-svg {
@@ -174,6 +181,8 @@ img {
   letter-spacing: 0.02em;
   color: var(--title-text-color);
   text-decoration: none;
+
+  transition: color 250ms var(--animation-cubic);
 }
 /*-------------------------------------- block-main --------------------------------------------------*/
 /*------------------------------ filter-button-section -------------------------------------------*/
@@ -197,6 +206,8 @@ img {
   text-decoration: none;
   border: none;
   cursor: pointer;
+
+  transition: color 250ms var(--animation-cubic), background 250ms var(--animation-cubic);
 }
 
 .btn:focus,
@@ -211,13 +222,17 @@ img {
 /*-------------------------------------- projects-menu ----------------------------*/
 .card-thumb {
   position: relative;
+  overflow: hidden;
 }
 .card-action {
   position: absolute;
   top: 0;
   left: 0;
+  height: 100%;
   opacity: 0;
   background-color: rgba(33, 150, 243, 0.9);
+  transform: translateY(100%);
+  transition: transform 250ms var(--animation-cubic);
 }
 .card-action-text {
   padding: 63px 24px;
@@ -227,6 +242,7 @@ img {
   color: var(--accent-text-color);
 }
 .card:hover .card-action {
+  transform: translateY(0);
   opacity: 1;
 }
 .project-list {
@@ -336,6 +352,7 @@ img {
 
 .footer-item-link {
   background: rgba(255, 255, 255, 0.1);
+  transition: background 250ms var(--animation-cubic);
 }
 .footer-item-fill {
   fill: var(--accent-text-color);
@@ -402,12 +419,7 @@ img {
   background: #f5f4fa;
   margin-bottom: 30px;
 }
-.svg-i {
-  content: '';
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: auto;
-}
+
 .pecularities-title {
   text-transform: uppercase;
   font-weight: 700;
@@ -510,6 +522,7 @@ img {
 
 .comand-link {
   fill: var(--icon-fill);
+  transition: fill 250ms var(--animation-cubic);
 }
 
 .social-link:hover .comand-link,
@@ -545,17 +558,17 @@ img {
   color: var(--icon-fill);
   border: 1px solid var(--icon-fill);
   border-radius: 4px;
+
+  transition: color 250ms var(--animation-cubic), border 250ms var(--animation-cubic);
 }
 .client-icon {
   fill: currentColor;
 }
-.client-link:hover,
-.client-link:focus {
-  color: var(--accent-color);
-}
+
 .client-link:hover,
 .client-link:focus {
   border-color: var(--accent-color);
+  color: var(--accent-color);
 }
 /*--------------------------------------- modal -------------------------------------------------*/
 .backdrop {
@@ -572,6 +585,7 @@ img {
   pointer-events: none;
   visibility: hidden;
 }
+
 .modal {
   position: absolute;
   top: 50%;
@@ -593,6 +607,4 @@ img {
   background: #fff;
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
-}
-.modal-item-close {
 }
