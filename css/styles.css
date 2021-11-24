@@ -17,6 +17,9 @@ body {
   margin: 0;
   padding: 0;
 }
+.body {
+  padding-top: 80px;
+}
 
 .container {
   width: 1200px;
@@ -60,7 +63,13 @@ img {
 /*--------------------------------------- heder --------------------------------------*/
 
 .page-header {
+  position: fixed;
+  min-width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
   display: flex;
+  background-color: #fff;
   border-bottom: 1px solid #ececec;
 }
 
