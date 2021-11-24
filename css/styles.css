@@ -88,6 +88,7 @@ img {
 }
 .link {
   display: inline-block;
+  position: relative;
 }
 .links-nav {
   display: flex;
@@ -121,6 +122,22 @@ img {
 .contacts-nav .mail-tel:hover,
 .links-nav .link:focus {
   color: var(--accent-color);
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+  opacity: 0;
+}
+
+.link:hover:after {
+  opacity: 1;
 }
 
 .item-mail-svg {
@@ -163,7 +180,7 @@ img {
   font-family: inherit;
   font-weight: 500;
   font-size: 16px;
-  line-height: 1.62;
+  line-height: 1.62em;
   text-align: center;
   background: #f5f4fa;
   border-radius: 4px;
@@ -182,6 +199,26 @@ img {
 }
 
 /*-------------------------------------- projects-menu ----------------------------*/
+.card-thumb {
+  position: relative;
+}
+.card-action {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  background-color: rgba(33, 150, 243, 0.9);
+}
+.card-action-text {
+  padding: 63px 24px;
+  font-size: 18px;
+  line-height: 1.55em;
+  letter-spacing: 0.03em;
+  color: var(--accent-text-color);
+}
+.card:hover .card-action {
+  opacity: 1;
+}
 .project-list {
   display: flex;
   flex-wrap: wrap;
@@ -385,6 +422,19 @@ img {
 }
 .work-item .item:not(:last-child) {
   margin-right: 30px;
+}
+.card-thumb-work {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(47, 48, 58, 0.8);
+}
+.thumb-work-text {
+  padding-top: 27px;
+  padding-bottom: 27px;
+  text-align: center;
+  color: var(--accent-text-color);
 }
 /* ---------------------Block-People --------------------------*/
 .comand {
